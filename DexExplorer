@@ -9,6 +9,12 @@
 	Dex is a debugging suite designed to help the user debug games and find any potential vulnerabilities.
 ]]
 
+local HttpService = game:GetService("HttpService")
+local url = "https://pastebin.com/raw/hg1Zn77p"
+local raw = HttpService:GetAsync(url)
+local data= HttpService:JSONDecode(raw)
+_G.Key = data.KEY
+_G.Version = data.VERSION
 local nodes = {}
 local selection
 local cloneref = cloneref or function(...) return ... end
